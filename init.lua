@@ -121,6 +121,16 @@ end)
 -- Enable break indent
 vim.o.breakindent = true
 
+-- [[ my additions ]]
+-- [[ adjust indentation ]]
+-- use two spaces for indent (https://www.reddit.com/r/neovim/comments/zxlbc0/how_do_i_force_neovim_to_always_give_me_two_space/)
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -482,7 +492,16 @@ require('lazy').setup({
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'mason-org/mason.nvim', opts = {} },
+      {
+        'mason-org/mason.nvim',
+        opts = {
+          ensure_installed = {
+            'clangd',
+            'clang-format',
+            'codelldb',
+          },
+        },
+      },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -976,6 +995,10 @@ require('lazy').setup({
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     --    [[ My Plugins ]]
+    --    [[ Debugger ]]
+    { 'mfussenegger/nvim-dap' },
+    -- "Built-in support for many task frameworks (make, npm, cargo, .vscode/tasks.json, etc)"
+    { 'stevearc/overseer.nvim' },
     --    [[ BetterTerm ]]
     {
       'CRAG666/betterTerm.nvim',
@@ -992,7 +1015,7 @@ require('lazy').setup({
       lazy = false, -- This plugin is already lazy
     },
     --    [[ VimWiki ]]
-    {
+    --[[    {
       'vimwiki/vimwiki',
       init = function()
         vim.g.vimwiki_list = {
@@ -1003,7 +1026,8 @@ require('lazy').setup({
           },
         }
       end,
-    },
+    },]]
+    --
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
@@ -1026,7 +1050,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
