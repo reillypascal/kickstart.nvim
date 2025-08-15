@@ -1026,6 +1026,13 @@ require('lazy').setup({
       lazy = false,
       --require('oil').setup(),
     },
+    { 'davidgranstrom/scnvim' },
+    {
+      'davidgranstrom/telescope-scdoc.nvim',
+      config = function()
+        require('telescope').load_extension 'scdoc'
+      end,
+    },
     --    [[ VimWiki ]]
     --[[    {
       'vimwiki/vimwiki',
