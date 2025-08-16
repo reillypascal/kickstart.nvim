@@ -1026,6 +1026,15 @@ require('lazy').setup({
       lazy = false,
       --require('oil').setup(),
     },
+    --{ 'vijaymarupudi/nvim-fzf' },
+    --[[{
+      'madskjeldgaard/fzf-sc',
+      requires = {
+        'vijaymarupudi/nvim-fzf',
+        'davidgranstrom/scnvim',
+      },
+    },]]
+    --
     { 'davidgranstrom/scnvim' },
     {
       'davidgranstrom/telescope-scdoc.nvim',

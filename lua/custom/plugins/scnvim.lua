@@ -28,9 +28,17 @@ return {
           color = 'IncSearch',
         },
       },
+documentation = {
+      cmd = '/opt/homebrew/bin/pandoc',
+    },
       postwin = {
         float = {
           enabled = true,
+        },
+      },
+      extensions = {
+        ['fzf-sc'] = {
+          search_plugin = 'nvim-fzf',
         },
       },
     }
