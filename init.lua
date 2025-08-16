@@ -1042,6 +1042,8 @@ require('lazy').setup({
         require('telescope').load_extension 'scdoc'
       end,
     },
+    { 'tidalcycles/vim-tidal' },
+    { 'martineausimon/nvim-lilypond-suite' },
     --    [[ VimWiki ]]
     --[[    {
       'vimwiki/vimwiki',
