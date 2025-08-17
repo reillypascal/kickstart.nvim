@@ -1000,13 +1000,8 @@ require('lazy').setup({
     -- "Built-in support for many task frameworks (make, npm, cargo, .vscode/tasks.json, etc)"
     { 'stevearc/overseer.nvim' },
     --    [[ BetterTerm ]]
-    {
-      'CRAG666/betterTerm.nvim',
-      opts = {
-        position = 'bot',
-        size = 10,
-      },
-    },
+    -- { 'CRAG666/betterTerm.nvim' },
+    -- { 'akinsho/toggleterm.nvim', version = '*', config = true },
     --    [[ Rust language ]]
     { 'rust-lang/rust.vim' },
     {
