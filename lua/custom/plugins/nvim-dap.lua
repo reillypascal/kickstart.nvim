@@ -1,4 +1,5 @@
 return {
+  -- "Built-in support for many task frameworks (make, npm, cargo, .vscode/tasks.json, etc)"
   'mfussenegger/nvim-dap',
   --event = 'VeryLazy',
   dependencies = {

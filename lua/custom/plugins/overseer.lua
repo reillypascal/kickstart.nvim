@@ -1,5 +1,7 @@
 return {
   'stevearc/overseer.nvim',
   opts = {},
-  require('overseer').setup(),
+  config = function()
+    require('overseer').setup()
+  end,
 }
