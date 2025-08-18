@@ -905,12 +905,14 @@ require('lazy').setup({
     --name = 'github-theme',
     --'EdenEast/nightfox.nvim',
     --'dgox16/oldworld.nvim',
-    'Mofiqul/vscode.nvim',
     --'Yazeed1s/oh-lucy.nvim',
+    --'binhtran432k/dracula.nvim',
+    --'dracula/vim',
+    'Mofiqul/vscode.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      --[[require('oh-lucy').setup {
+      --[[require('folke/tokyonight').setup {
         styles = {
           comments = { italic = false }, -- Disable italics in comments
         },
