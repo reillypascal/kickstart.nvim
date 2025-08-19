@@ -894,21 +894,16 @@ require('lazy').setup({
       signature = { enabled = true },
     },
   },
-
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     --'folke/tokyonight.nvim',
-    --'projekt0n/github-nvim-theme',
-    --name = 'github-theme',
-    --'EdenEast/nightfox.nvim',
-    --'dgox16/oldworld.nvim',
-    --'Yazeed1s/oh-lucy.nvim',
     --'binhtran432k/dracula.nvim',
     --'dracula/vim',
-    'Mofiqul/vscode.nvim',
+    --'Mofiqul/vscode.nvim',
+    'reillypascal/perf',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
@@ -923,15 +918,11 @@ require('lazy').setup({
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       --vim.cmd.colorscheme 'tokyonight-night'
-      --vim.cmd.colorscheme 'github_dark_tritanopia'
-      --vim.cmd.colorscheme 'carbonfox'
-      --vim.cmd.colorscheme 'oldworld'
-      --vim.cmd.colorscheme 'oh-lucy'
-      vim.cmd.colorscheme 'vscode'
+      --vim.cmd.colorscheme 'vscode'
+      vim.cmd.colorscheme 'perf'
       --vim.cmd.colorscheme 'default'
     end,
   },
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
