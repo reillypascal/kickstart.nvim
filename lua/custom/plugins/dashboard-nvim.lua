@@ -3,6 +3,7 @@ return {
   event = 'VimEnter',
   config = function()
     require('dashboard').setup {
+      change_to_vcs_root = true,
       config = {
         week_header = {
           enable = true,
