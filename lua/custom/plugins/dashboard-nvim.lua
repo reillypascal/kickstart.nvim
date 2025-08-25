@@ -54,20 +54,8 @@ return {
             desc = 'Browse',
             group = 'Label',
             action = 'Oil',
-            key = 'o',
+            key = 'r',
           },
-          --[[           {
-            desc = ' Apps',
-            group = 'DiagnosticHint',
-            action = 'Telescope app',
-            key = 'a',
-          },
-          {
-            desc = ' dotfiles',
-            group = 'Number',
-            action = 'Telescope dotfiles',
-            key = 'd',
-          }, ]]
         },
       },
     }
