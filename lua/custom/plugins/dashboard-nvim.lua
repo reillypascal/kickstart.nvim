@@ -5,9 +5,10 @@ return {
     require('dashboard').setup {
       change_to_vcs_root = true,
       config = {
-        week_header = {
+        -- header = {},
+        --[[ week_header = {
           enable = true,
-        },
+        }, ]]
         footer = {},
         shortcut = {
           { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
