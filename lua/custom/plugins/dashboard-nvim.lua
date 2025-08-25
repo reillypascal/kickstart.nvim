@@ -38,9 +38,9 @@ return {
         }, ]]
         footer = {},
         shortcut = {
-          { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
+          { desc = '󰚰 Update', group = '@property', action = 'Lazy update', key = 'u' },
           {
-            icon = ' ',
+            icon = ' ',
             icon_hl = '@variable',
             desc = 'Search',
             group = 'Label',
@@ -48,7 +48,7 @@ return {
             key = 's',
           },
           {
-            icon = ' ',
+            icon = ' ',
             icon_hl = '@variable',
             desc = 'Browse',
             group = 'Label',
