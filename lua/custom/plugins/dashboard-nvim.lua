@@ -42,10 +42,18 @@ return {
           {
             icon = ' ',
             icon_hl = '@variable',
-            desc = 'Files',
+            desc = 'Search',
             group = 'Label',
             action = 'Telescope find_files',
-            key = 'f',
+            key = 's',
+          },
+          {
+            icon = ' ',
+            icon_hl = '@variable',
+            desc = 'Browse',
+            group = 'Label',
+            action = 'Oil',
+            key = 'o',
           },
           --[[           {
             desc = ' Apps',
