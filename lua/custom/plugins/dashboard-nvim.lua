@@ -41,12 +41,12 @@ return {
         shortcut = {
           { desc = '󰚰 Update', group = '@property', action = 'Lazy update', key = 'u' },
           {
-            icon = ' ',
+            icon = '󰦨 ',
             icon_hl = '@variable',
-            desc = 'Search',
+            desc = 'New',
             group = 'Label',
-            action = 'Telescope find_files',
-            key = 's',
+            action = 'enew',
+            key = 'n',
           },
           {
             icon = ' ',
@@ -55,6 +55,14 @@ return {
             group = 'Label',
             action = 'Oil',
             key = 'r',
+          },
+          {
+            icon = ' ',
+            icon_hl = '@variable',
+            desc = 'Search',
+            group = 'Label',
+            action = 'Telescope find_files',
+            key = 's',
           },
         },
       },
