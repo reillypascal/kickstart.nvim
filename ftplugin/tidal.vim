@@ -58,11 +58,12 @@ if !exists("g:tidal_no_mappings") || !g:tidal_no_mappings
 
   if !hasmapto('<Plug>TidalRegionSend', 'x')
     xmap <buffer> <localleader>s  <Plug>TidalRegionSend
-    xmap <buffer> <c-e> <Plug>TidalRegionSend
+    xmap <buffer> <c-CR> <Plug>TidalRegionSend
   endif
 
   if !hasmapto('<Plug>TidalLineSend', 'n')
     nmap <buffer> <localleader>s  <Plug>TidalLineSend
+    nmap <buffer> <S-CR>  <Plug>TidalLineSend
   endif
 
   if !hasmapto('<Plug>TidalParagraphSend', 'n')
