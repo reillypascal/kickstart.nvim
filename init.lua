@@ -88,7 +88,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = ','
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
@@ -129,7 +129,12 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
-vim.opt.smartindent = true
+-- note smartindent causes issues with tidal files! use cindent?
+-- https://vi.stackexchange.com/questions/9553/how-do-i-turn-off-the-feature-where-the-pound-sign-is-forced-to-0-position
+-- https://www.reddit.com/r/neovim/comments/14n6iiy/if_you_have_treesitter_make_sure_to_disable/
+-- vim.opt.smartindent = true
+-- cindent was removing existing indent when moving to new line
+-- vim.opt.cindent = true
 
 -- Save undo history
 vim.o.undofile = true
