@@ -34,9 +34,6 @@ return {
       change_to_vcs_root = true,
       config = {
         header = vim.split(string.rep('\n', 2) .. header, '\n'),
-        --[[ week_header = {
-          enable = true,
-        }, ]]
         footer = {},
         shortcut = {
           { desc = '󰚰 Update', group = '@property', action = 'Lazy update', key = 'u' },
