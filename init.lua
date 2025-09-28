@@ -221,6 +221,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 -- [[ User commands ]]
+-- options {} argument required, but left empty here
 vim.api.nvim_create_user_command('IsoDate', "pu=strftime('%Y-%m-%dT%H:%M:%S%z')", {})
 
 -- [[ Basic Autocommands ]]
