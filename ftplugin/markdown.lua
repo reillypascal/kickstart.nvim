@@ -6,6 +6,10 @@ vim.opt.linebreak = true
 -- hides links, but also adds weird line breaks, hides image links, etc.
 -- vim.opt.conceallevel = 2
 
+vim.cmd [[
+  :setlocal spell spelllang=en_us
+]]
+
 -- https://www.reddit.com/r/neovim/comments/1lympg0/navigate_wrapped_lines_in_txt_and_markdown_files/
 -- Map j and k to move by visual lines
 vim.api.nvim_buf_set_keymap(0, 'n', 'j', 'gj', { noremap = true, silent = true })
