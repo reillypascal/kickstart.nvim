@@ -55,11 +55,12 @@ return {
       'css',
       'javascript',
       'liquid',
+      'markdown',
       'rust',
       'zsh',
       -- some docs such as lua require version number along with the language name
       -- check `DevDocs install` to view the actual names of the docs
-      'lua~5.1',
+      'lua~5.4',
       'python~3.14',
       -- "openjdk~21"
     },
