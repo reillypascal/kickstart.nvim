@@ -135,6 +135,7 @@ vim.opt.autoindent = true
 -- vim.opt.smartindent = true
 -- cindent was removing existing indent when moving to new line
 -- vim.opt.cindent = true
+vim.opt.spellfile = vim.fn.stdpath 'config' .. '/spell/en.utf-8.add'
 
 -- Save undo history
 vim.o.undofile = true
@@ -683,6 +684,21 @@ require('lazy').setup({
         },
       }
 
+      -- reference: https://github.com/miikanissi/dotfiles/blob/cfe7c149baca373c9109d997cfac3ca1eb0e29e0/.config/nvim/init.lua#L540 and https://miikanissi.com/blog/grammar-and-spell-checker-in-nvim/
+      local words = {}
+      for word in io.open(vim.fn.stdpath 'config' .. '/spell/en.utf-8.add', 'r'):lines() do
+        table.insert(words, word)
+      end
+
+      vim.lsp.config('ltex', {
+        settings = {
+          ltex = {
+            dictionary = {
+              ['en-US'] = words,
+            },
+          },
+        },
+      })
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
