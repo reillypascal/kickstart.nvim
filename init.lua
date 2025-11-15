@@ -788,7 +788,7 @@ require('lazy').setup({
         'lua-language-server',
         'marksman',
         -- 'prettier',
-        -- 'prettierd',
+        'prettierd',
         'python-lsp-server',
         'ruff',
         'rust-analyzer',
