@@ -190,7 +190,9 @@ vim.o.confirm = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>ld', vim.diagnostic.setloclist, { desc = 'Add all [d]iagnostics to the location list.' })
+vim.keymap.set('n', '<leader>cd', vim.diagnostic.setqflist, { desc = 'Add all [d]iagnostics to the quickfix list.' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -506,27 +508,7 @@ require('lazy').setup({
       {
         'mason-org/mason.nvim',
         opts = {
-          ensure_installed = {
-            -- 'clangd',
-            -- 'clang-format',
-            -- 'codelldb',
-            -- 'cpptools',
-            -- 'curlylint',
-            -- 'eslint_lsp',
-            -- 'js-debug-adapter',
-            -- 'json-lsp',
-            -- 'ltex-ls',
-            -- 'lua-language-server',
-            -- 'marksman',
-            -- 'prettier',
-            -- 'prettierd',
-            -- 'python-lsp-server',
-            -- 'ruff',
-            -- 'rust-analyzer',
-            -- 'stylelint',
-            -- 'stylua',
-            -- 'typescript-language-server',
-          },
+          ensure_installed = {},
         },
       },
       'mason-org/mason-lspconfig.nvim',
@@ -744,6 +726,17 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        basedpyright = {
+          settings = {
+            filetypes = { 'python' },
+          },
+        },
+
+        bashls = {
+          settings = {
+            filetypes = { 'sh', 'zsh' },
+          },
+        },
 
         lua_ls = {
           -- cmd = { ... },
@@ -759,6 +752,12 @@ require('lazy').setup({
             },
           },
         },
+
+        -- pyrefly = {
+        --   settings = {
+        --     filetypes = { 'python' },
+        --   },
+        -- },
       }
 
       -- Ensure the servers and tools above are installed
@@ -776,25 +775,37 @@ require('lazy').setup({
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
+        'basedpyright',
+        'bash-language-server',
+        'biome', -- web/JS linting/formatting
         'clangd',
         'clang-format',
         'codelldb',
         'cpptools',
         'curlylint',
-        'eslint-lsp',
-        'js-debug-adapter',
+        -- 'eslint-lsp', -- old, seems abandoned
+        -- 'eslint_d',
+        'gopls',
+        -- 'js-debug-adapter',
         'json-lsp',
         'ltex-ls',
         'lua-language-server',
         'marksman',
-        -- 'prettier',
+        -- 'prettier', -- redundant (?) with prettierd
         'prettierd',
-        'python-lsp-server',
+        -- 'pyrefly', -- python; basedpyright replacement? in rust
+        -- 'python-lsp-server',
         'ruff',
-        'rust-analyzer',
+        -- DON'T install via Mason; ends up running twice
+        -- 'rust-analyzer',
         'stylelint',
         'stylua', -- Used to format Lua code
-        'typescript-language-server',
+        'tombi', -- TOML - new, but seems nicer than taplo
+        -- 'typescript-language-server',
+        -- 'ty', -- python: replacement for basedpyright; same people as ruff; alpha but promising
+        -- people on Reddit say it's better than ts_ls
+        'vtsls',
+        'yaml-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -846,13 +857,14 @@ require('lazy').setup({
         end
       end,
       formatters_by_ft = {
-        lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'biome' },
+        lua = { 'stylua' },
         markdown = { 'prettierd' },
+        python = { 'ruff' },
       },
     },
   },
@@ -1049,6 +1061,7 @@ require('lazy').setup({
         'python',
         'query',
         'rust',
+        'toml',
         'vim',
         'vimdoc',
       },
